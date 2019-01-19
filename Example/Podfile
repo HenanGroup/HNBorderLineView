@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'HNBorderLineView_Example' do
+  pod 'HNBorderLineView', :path => '../'
+
+  target 'HNBorderLineView_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
