@@ -1,0 +1,16 @@
+PODS:
+  - HNBorderLineView (0.1.0)
+
+DEPENDENCIES:
+  - HNBorderLineView (from `../`)
+
+EXTERNAL SOURCES:
+  HNBorderLineView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  HNBorderLineView: 6cbf035f4dd5a3afbb46852b46463215dc060340
+
+PODFILE CHECKSUM: d03fadfcbc2f54acf29a0b7210532361fd159bb8
+
+COCOAPODS: 1.5.3

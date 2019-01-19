@@ -1,0 +1,6 @@
+framework module Pods_HNBorderLineView_Example {
+  umbrella header "Pods-HNBorderLineView_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

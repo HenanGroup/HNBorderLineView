@@ -1,0 +1,6 @@
+framework module HNBorderLineView {
+  umbrella header "HNBorderLineView-umbrella.h"
+
+  export *
+  module * { export * }
+}

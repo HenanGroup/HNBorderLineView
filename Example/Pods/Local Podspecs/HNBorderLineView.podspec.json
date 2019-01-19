@@ -1,0 +1,22 @@
+{
+  "name": "HNBorderLineView",
+  "version": "0.1.0",
+  "summary": "A short description of HNBorderLineView.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/伟坤 郭/HNBorderLineView",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "伟坤 郭": "guoweikun621@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/伟坤 郭/HNBorderLineView.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "HNBorderLineView/Classes/**/*"
+}
