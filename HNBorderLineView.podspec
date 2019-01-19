@@ -32,7 +32,7 @@ Pod::Spec.new do |s|
 
   s.source_files = 'HNBorderLineView/Classes/**/*'
   
-  s.swift_version = 4.0
+  s.swift_version = '4.0'
   s.requires_arc     = true
   
   # s.resource_bundles = {
