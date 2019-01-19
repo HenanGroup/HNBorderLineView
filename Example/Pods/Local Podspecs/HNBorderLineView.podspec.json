@@ -1,9 +1,9 @@
 {
   "name": "HNBorderLineView",
-  "version": "0.1.0",
-  "summary": "A short description of HNBorderLineView.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/伟坤 郭/HNBorderLineView",
+  "version": "1.0.0",
+  "summary": "此库给UIView及子类添加边线，分隔线.",
+  "description": "此库给UIView及子类添加边线，分隔线. 简单易用。",
+  "homepage": "https://github.com/HenanGroup/HNBorderLineView",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,8 +12,8 @@
     "伟坤 郭": "guoweikun621@gmail.com"
   },
   "source": {
-    "git": "https://github.com/伟坤 郭/HNBorderLineView.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/HenanGroup/HNBorderLineView.git",
+    "tag": "1.0.0"
   },
   "platforms": {
     "ios": "8.0"

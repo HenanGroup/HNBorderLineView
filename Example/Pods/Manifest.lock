@@ -1,5 +1,5 @@
 PODS:
-  - HNBorderLineView (0.1.0)
+  - HNBorderLineView (1.0.0)
 
 DEPENDENCIES:
   - HNBorderLineView (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  HNBorderLineView: 6cbf035f4dd5a3afbb46852b46463215dc060340
+  HNBorderLineView: 296f06be028adcd1dd879406295d8e23c581edc0
 
 PODFILE CHECKSUM: d03fadfcbc2f54acf29a0b7210532361fd159bb8
 

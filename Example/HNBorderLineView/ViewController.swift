@@ -7,18 +7,20 @@
 //
 
 import UIKit
+import HNBorderLineView
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var testView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        testView.addSeparatorLines([.top, .bottom, .left, .right, .centerY, .centerX]) { (v, diction) in
+            v.defaultConfig.color = .red
+            v.defaultConfig.height = 2.0
+            v.defaultConfig.insets = SeparatorInsets(frond: 10, back: 20)
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 }
 

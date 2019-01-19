@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HNBorderLineView'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of HNBorderLineView.'
+  s.version          = '1.0.0'
+  s.summary          = '此库给UIView及子类添加边线，分隔线.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,14 +18,14 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+                        此库给UIView及子类添加边线，分隔线. 简单易用。
                        DESC
 
-  s.homepage         = 'https://github.com/伟坤 郭/HNBorderLineView'
+  s.homepage         = 'https://github.com/HenanGroup/HNBorderLineView'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { '伟坤 郭' => 'guoweikun621@gmail.com' }
-  s.source           = { :git => 'https://github.com/伟坤 郭/HNBorderLineView.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/HenanGroup/HNBorderLineView.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
