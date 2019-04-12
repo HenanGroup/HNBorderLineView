@@ -14,13 +14,17 @@ public extension UIView {
     /// - Parameters:
     ///   - directions: 分隔线方向
     ///   - configClosure: 分隔线的配置
-    public func addSeparatorLines(_ directions: [SeparatorView.SeparatorDirection], configClosure: SeparatorView.SeparatorConfigClosure? = nil) {
-        directions.forEach {
-            addSeparator($0, configClosure: configClosure)
+    @discardableResult
+    public func addSeparatorLines(_ directions: [SeparatorView.SeparatorDirection], configClosure: SeparatorView.SeparatorConfigClosure? = nil) -> [SeparatorView] {
+        var resViews: [SeparatorView] = []
+        for dir in directions {
+            let line = addSeparator(dir, configClosure: configClosure)
+            resViews.append(line)
         }
+        return resViews
     }
     
-    fileprivate func addSeparator(_ direction: SeparatorView.SeparatorDirection, configClosure: SeparatorView.SeparatorConfigClosure?) {
+    fileprivate func addSeparator(_ direction: SeparatorView.SeparatorDirection, configClosure: SeparatorView.SeparatorConfigClosure?) -> SeparatorView {
         let lineView = SeparatorView()
         lineView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(lineView)
@@ -31,105 +35,45 @@ public extension UIView {
         
         switch direction {
         case .left:
-            if #available(iOS 9.0, *) {
-                lineView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-                lineView.widthAnchor.constraint(equalToConstant: lineView.defaultConfig.height).isActive = true
-                lineView.topAnchor.constraint(equalTo: self.topAnchor, constant: lineView.defaultConfig.insets.frond).isActive = true
-                lineView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -lineView.defaultConfig.insets.back).isActive = true
-            }
-            else {
-                addConstraints([
-                    NSLayoutConstraint(item: lineView, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1.0, constant: 0),
-                    NSLayoutConstraint(item: lineView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: lineView.defaultConfig.height),
-                    NSLayoutConstraint(item: lineView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: lineView.defaultConfig.insets.frond),
-                    NSLayoutConstraint(item: lineView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: -lineView.defaultConfig.insets.back)
-                    ])
-            }
+            lineView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+            lineView.widthAnchor.constraint(equalToConstant: lineView.defaultConfig.height).isActive = true
+            lineView.topAnchor.constraint(equalTo: self.topAnchor, constant: lineView.defaultConfig.insets.frond).isActive = true
+            lineView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -lineView.defaultConfig.insets.back).isActive = true
             break
         case .right:
-            if #available(iOS 9.0, *) {
-                lineView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-                lineView.widthAnchor.constraint(equalToConstant: lineView.defaultConfig.height).isActive = true
-                lineView.topAnchor.constraint(equalTo: self.topAnchor, constant: lineView.defaultConfig.insets.frond).isActive = true
-                lineView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -lineView.defaultConfig.insets.back).isActive = true
-            }
-            else {
-                addConstraints([
-                    NSLayoutConstraint(item: lineView, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1.0, constant: 0),
-                    NSLayoutConstraint(item: lineView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: lineView.defaultConfig.height),
-                    NSLayoutConstraint(item: lineView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: lineView.defaultConfig.insets.frond),
-                    NSLayoutConstraint(item: lineView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: -lineView.defaultConfig.insets.back)
-                    ])
-            }
+            lineView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+            lineView.widthAnchor.constraint(equalToConstant: lineView.defaultConfig.height).isActive = true
+            lineView.topAnchor.constraint(equalTo: self.topAnchor, constant: lineView.defaultConfig.insets.frond).isActive = true
+            lineView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -lineView.defaultConfig.insets.back).isActive = true
             break
         case .top:
-            if #available(iOS 9.0, *) {
-                lineView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-                lineView.heightAnchor.constraint(equalToConstant: lineView.defaultConfig.height).isActive = true
-                lineView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: lineView.defaultConfig.insets.frond).isActive = true
-                lineView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -lineView.defaultConfig.insets.back).isActive = true
-            }
-            else {
-                addConstraints([
-                    NSLayoutConstraint(item: lineView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: 0),
-                    NSLayoutConstraint(item: lineView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: lineView.defaultConfig.height),
-                    NSLayoutConstraint(item: lineView, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1.0, constant: lineView.defaultConfig.insets.frond),
-                    NSLayoutConstraint(item: lineView, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1.0, constant: -lineView.defaultConfig.insets.back)
-                    ])
-            }
+            lineView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+            lineView.heightAnchor.constraint(equalToConstant: lineView.defaultConfig.height).isActive = true
+            lineView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: lineView.defaultConfig.insets.frond).isActive = true
+            lineView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -lineView.defaultConfig.insets.back).isActive = true
             break
         case .bottom:
-            if #available(iOS 9.0, *) {
-                lineView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-                lineView.heightAnchor.constraint(equalToConstant: lineView.defaultConfig.height).isActive = true
-                lineView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: lineView.defaultConfig.insets.frond).isActive = true
-                lineView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -lineView.defaultConfig.insets.back).isActive = true
-            }
-            else {
-                addConstraints([
-                    NSLayoutConstraint(item: lineView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: 0),
-                    NSLayoutConstraint(item: lineView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: lineView.defaultConfig.height),
-                    NSLayoutConstraint(item: lineView, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1.0, constant: lineView.defaultConfig.insets.frond),
-                    NSLayoutConstraint(item: lineView, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1.0, constant: -lineView.defaultConfig.insets.back)
-                    ])
-            }
+            lineView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+            lineView.heightAnchor.constraint(equalToConstant: lineView.defaultConfig.height).isActive = true
+            lineView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: lineView.defaultConfig.insets.frond).isActive = true
+            lineView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -lineView.defaultConfig.insets.back).isActive = true
             break
         case .centerX:
-            if #available(iOS 9.0, *) {
-                lineView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-                lineView.widthAnchor.constraint(equalToConstant: lineView.defaultConfig.height).isActive = true
-                lineView.topAnchor.constraint(equalTo: self.topAnchor, constant: lineView.defaultConfig.insets.frond).isActive = true
-                lineView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -lineView.defaultConfig.insets.back).isActive = true
-            }
-            else {
-                addConstraints([
-                    NSLayoutConstraint(item: lineView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1.0, constant: 0),
-                    NSLayoutConstraint(item: lineView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: lineView.defaultConfig.height),
-                    NSLayoutConstraint(item: lineView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: lineView.defaultConfig.insets.frond),
-                    NSLayoutConstraint(item: lineView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1.0, constant: -lineView.defaultConfig.insets.back)
-                    ])
-            }
+            lineView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+            lineView.widthAnchor.constraint(equalToConstant: lineView.defaultConfig.height).isActive = true
+            lineView.topAnchor.constraint(equalTo: self.topAnchor, constant: lineView.defaultConfig.insets.frond).isActive = true
+            lineView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -lineView.defaultConfig.insets.back).isActive = true
             break
         case .centerY:
-            if #available(iOS 9.0, *) {
-                lineView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-                lineView.heightAnchor.constraint(equalToConstant: lineView.defaultConfig.height).isActive = true
-                lineView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: lineView.defaultConfig.insets.frond).isActive = true
-                lineView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -lineView.defaultConfig.insets.back).isActive = true
-            }
-            else {
-                addConstraints([
-                    NSLayoutConstraint(item: lineView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1.0, constant: 0),
-                    NSLayoutConstraint(item: lineView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: lineView.defaultConfig.height),
-                    NSLayoutConstraint(item: lineView, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1.0, constant: lineView.defaultConfig.insets.frond),
-                    NSLayoutConstraint(item: lineView, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1.0, constant: -lineView.defaultConfig.insets.back)
-                    ])
-            }
+            lineView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+            lineView.heightAnchor.constraint(equalToConstant: lineView.defaultConfig.height).isActive = true
+            lineView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: lineView.defaultConfig.insets.frond).isActive = true
+            lineView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -lineView.defaultConfig.insets.back).isActive = true
             break
         default:
             break
         }
-        
+        return lineView
     }
     
     

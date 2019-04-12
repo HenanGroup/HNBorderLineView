@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HNBorderLineView'
-  s.version          = '1.0.0'
+  s.version          = '1.1.0'
   s.summary          = '此库给UIView及子类添加边线，分隔线.'
 
 # This description is used to generate tags and improve search results.
@@ -28,18 +28,10 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/HenanGroup/HNBorderLineView.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
 
   s.source_files = 'HNBorderLineView/Classes/**/*'
   
   s.swift_version = '4.0'
   s.requires_arc     = true
-  
-  # s.resource_bundles = {
-  #   'HNBorderLineView' => ['HNBorderLineView/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end
