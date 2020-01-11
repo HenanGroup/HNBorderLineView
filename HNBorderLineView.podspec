@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'HNBorderLineView'
-  s.version          = '1.1.0'
+  s.version          = '1.2.0'
   s.summary          = '此库给UIView及子类添加边线，分隔线.'
 
 # This description is used to generate tags and improve search results.
@@ -32,6 +32,6 @@ Pod::Spec.new do |s|
 
   s.source_files = 'HNBorderLineView/Classes/**/*'
   
-  s.swift_version = '4.0'
+  s.swift_version = '5.0'
   s.requires_arc     = true
 end
